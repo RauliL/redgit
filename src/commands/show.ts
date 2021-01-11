@@ -1,7 +1,6 @@
 import { Command } from "@oclif/command";
-import { CLIError } from "@oclif/errors";
 
-import { getClient } from "../api";
+import { getSubmission } from "../api";
 import { renderSubmission } from "../ui";
 
 export default class ShowCommand extends Command {
@@ -20,17 +19,11 @@ export default class ShowCommand extends Command {
       args: { id },
     } = this.parse(ShowCommand);
 
-    return getClient()
-      .then((client) => client.getSubmission(id).fetch())
-      .then((submission) =>
-        submission == null
-          ? Promise.reject(
-              new CLIError(`No submission with ID ${id} was found.`)
-            )
-          : renderSubmission(process.stdout, submission, {
-              displaySelfText: true,
-              displaySubreddit: true,
-            })
-      );
+    return getSubmission(id).then((submission) =>
+      renderSubmission(process.stdout, submission, {
+        displaySelfText: true,
+        displaySubreddit: true,
+      })
+    );
   }
 }

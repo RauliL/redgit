@@ -1,7 +1,6 @@
 import { Command } from "@oclif/command";
-import { CLIError } from "@oclif/errors";
 
-import { getClient } from "../api";
+import { getSubmission } from "../api";
 
 export default class DownvoteCommand extends Command {
   static description = "downvotes an submission";
@@ -19,13 +18,8 @@ export default class DownvoteCommand extends Command {
       args: { id },
     } = this.parse(DownvoteCommand);
 
-    return getClient()
-      .then((client) => client.getSubmission(id).fetch())
-      .then((submission) =>
-        submission == null
-          ? Promise.reject(new CLIError(`No submission with ${id} was found.`))
-          : submission.upvote()
-      )
+    return getSubmission(id)
+      .then((submission) => submission.upvote())
       .then(() => this.log(`Submission ${id} downvoted.`));
   }
 }
