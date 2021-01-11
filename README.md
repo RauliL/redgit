@@ -28,9 +28,13 @@ $ redgit log --ordering=new --limit 5 aww
 * [`redgit log [SUBREDDIT]`](#redgit-log-subreddit)
 * [`redgit open ID`](#redgit-open-id)
 * [`redgit show ID`](#redgit-show-id)
+* [`redgit subscribe SUBREDDIT`](#redgit-subscribe-subreddit)
+* [`redgit unsubscribe SUBREDDIT`](#redgit-unsubscribe-subreddit)
 * [`redgit upvote ID`](#redgit-upvote-id)
 
 ## `redgit config [KEY] [VALUE]`
+
+manage RedGit configuration
 
 ```
 USAGE
@@ -48,7 +52,7 @@ OPTIONS
   --unset=unset            remove a variable: name
 ```
 
-_See code: [src/commands/config.ts](https://github.com/RauliL/redgit/blob/v0.1.0/src/commands/config.ts)_
+_See code: [src/commands/config.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/config.ts)_
 
 ## `redgit downvote ID`
 
@@ -62,7 +66,7 @@ ARGUMENTS
   ID  id of the submission to downvote
 ```
 
-_See code: [src/commands/downvote.ts](https://github.com/RauliL/redgit/blob/v0.1.0/src/commands/downvote.ts)_
+_See code: [src/commands/downvote.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/downvote.ts)_
 
 ## `redgit help [COMMAND]`
 
@@ -90,7 +94,7 @@ USAGE
   $ redgit init
 ```
 
-_See code: [src/commands/init.ts](https://github.com/RauliL/redgit/blob/v0.1.0/src/commands/init.ts)_
+_See code: [src/commands/init.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/init.ts)_
 
 ## `redgit log [SUBREDDIT]`
 
@@ -109,7 +113,7 @@ OPTIONS
   -t, --time=all|hour|day|month|week|year
 ```
 
-_See code: [src/commands/log.ts](https://github.com/RauliL/redgit/blob/v0.1.0/src/commands/log.ts)_
+_See code: [src/commands/log.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/log.ts)_
 
 ## `redgit open ID`
 
@@ -123,7 +127,7 @@ ARGUMENTS
   ID  id of the submission to open
 ```
 
-_See code: [src/commands/open.ts](https://github.com/RauliL/redgit/blob/v0.1.0/src/commands/open.ts)_
+_See code: [src/commands/open.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/open.ts)_
 
 ## `redgit show ID`
 
@@ -137,7 +141,35 @@ ARGUMENTS
   ID  id of the submission to display
 ```
 
-_See code: [src/commands/show.ts](https://github.com/RauliL/redgit/blob/v0.1.0/src/commands/show.ts)_
+_See code: [src/commands/show.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/show.ts)_
+
+## `redgit subscribe SUBREDDIT`
+
+subscribes to an subreddit
+
+```
+USAGE
+  $ redgit subscribe SUBREDDIT
+
+ARGUMENTS
+  SUBREDDIT  name of the subreddit (without the /r/ prefix)
+```
+
+_See code: [src/commands/subscribe.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/subscribe.ts)_
+
+## `redgit unsubscribe SUBREDDIT`
+
+removes subscription of an subreddit
+
+```
+USAGE
+  $ redgit unsubscribe SUBREDDIT
+
+ARGUMENTS
+  SUBREDDIT  name of the subreddit (without the /r/ prefix)
+```
+
+_See code: [src/commands/unsubscribe.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/unsubscribe.ts)_
 
 ## `redgit upvote ID`
 
@@ -151,5 +183,5 @@ ARGUMENTS
   ID  id of the submission to upvote
 ```
 
-_See code: [src/commands/upvote.ts](https://github.com/RauliL/redgit/blob/v0.1.0/src/commands/upvote.ts)_
+_See code: [src/commands/upvote.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/upvote.ts)_
 <!-- commandsstop -->
