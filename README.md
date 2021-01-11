@@ -1,7 +1,7 @@
 redgit
 ======
 
-Git like interface for Reddit
+Git like interface for Reddit.
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/redgit.svg)](https://npmjs.org/package/redgit)
@@ -13,17 +13,10 @@ Git like interface for Reddit
 * [Commands](#commands)
 <!-- tocstop -->
 # Usage
-<!-- usage -->
 ```sh-session
 $ npm install -g redgit
-$ redgit COMMAND
-running command...
-$ redgit (-v|--version|version)
-redgit/0.1.0 linux-x64 node-v12.16.1
-$ redgit --help [COMMAND]
-USAGE
-  $ redgit COMMAND
-...
+$ redgit init
+$ redgit log --ordering=new --limit 5 aww
 ```
 <!-- usagestop -->
 # Commands
