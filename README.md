@@ -28,8 +28,7 @@ $ redgit log --ordering=new --limit 5 aww
 * [`redgit log [SUBREDDIT]`](#redgit-log-subreddit)
 * [`redgit open ID`](#redgit-open-id)
 * [`redgit show ID`](#redgit-show-id)
-* [`redgit subscribe SUBREDDIT`](#redgit-subscribe-subreddit)
-* [`redgit unsubscribe SUBREDDIT`](#redgit-unsubscribe-subreddit)
+* [`redgit subscription [COMMAND] [SUBREDDIT]`](#redgit-subscription-command-subreddit)
 * [`redgit upvote ID`](#redgit-upvote-id)
 
 ## `redgit config [KEY] [VALUE]`
@@ -143,33 +142,20 @@ ARGUMENTS
 
 _See code: [src/commands/show.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/show.ts)_
 
-## `redgit subscribe SUBREDDIT`
+## `redgit subscription [COMMAND] [SUBREDDIT]`
 
-subscribes to an subreddit
-
-```
-USAGE
-  $ redgit subscribe SUBREDDIT
-
-ARGUMENTS
-  SUBREDDIT  name of the subreddit (without the /r/ prefix)
-```
-
-_See code: [src/commands/subscribe.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/subscribe.ts)_
-
-## `redgit unsubscribe SUBREDDIT`
-
-removes subscription of an subreddit
+manage subreddit subscriptions
 
 ```
 USAGE
-  $ redgit unsubscribe SUBREDDIT
+  $ redgit subscription [COMMAND] [SUBREDDIT]
 
 ARGUMENTS
-  SUBREDDIT  name of the subreddit (without the /r/ prefix)
+  COMMAND    (add|rm)
+  SUBREDDIT  name of subreddit (without /r/ prefix)
 ```
 
-_See code: [src/commands/unsubscribe.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/unsubscribe.ts)_
+_See code: [src/commands/subscription.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/subscription.ts)_
 
 ## `redgit upvote ID`
 
