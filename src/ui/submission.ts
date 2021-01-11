@@ -1,5 +1,6 @@
 import chalk from "chalk";
 import columnify from "columnify";
+import { isEmpty } from "lodash";
 import { Submission } from "snoowrap";
 import { Writable } from "stream";
 
@@ -34,7 +35,7 @@ export const renderSubmission = (
   );
   output.write(columnify(info, { showHeaders: false }));
   output.write(`\n\n    ${submission.title}\n`);
-  if (options.displaySelfText) {
+  if (options.displaySelfText && !isEmpty(submission.selftext)) {
     output.write(`\n    ${submission.selftext}\n`);
   }
 };
