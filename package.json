@@ -36,10 +36,11 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
+    "manifest:update": "oclif-dev manifest",
+    "readme:update": "oclif-dev readme",
     "prebuild": "rimraf ./lib",
     "prepack": "yarn run build && oclif-dev manifest && oclif-dev readme",
-    "postpack": "rimraf oclif.manifest.json",
-    "version": "oclif-dev readme && git add README.md"
+    "postpack": "rimraf oclif.manifest.json"
   },
   "dependencies": {
     "@oclif/command": "^1",

@@ -21,11 +21,27 @@ $ redgit log --ordering=new --limit 5 aww
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`redgit downvote ID`](#redgit-downvote-id)
 * [`redgit help [COMMAND]`](#redgit-help-command)
 * [`redgit init`](#redgit-init)
 * [`redgit log [SUBREDDIT]`](#redgit-log-subreddit)
 * [`redgit open ID`](#redgit-open-id)
 * [`redgit show ID`](#redgit-show-id)
+* [`redgit upvote ID`](#redgit-upvote-id)
+
+## `redgit downvote ID`
+
+downvotes an submission
+
+```
+USAGE
+  $ redgit downvote ID
+
+ARGUMENTS
+  ID  id of the submission to downvote
+```
+
+_See code: [src/commands/downvote.ts](https://github.com/RauliL/redgit/blob/v0.1.0/src/commands/downvote.ts)_
 
 ## `redgit help [COMMAND]`
 
@@ -101,4 +117,18 @@ ARGUMENTS
 ```
 
 _See code: [src/commands/show.ts](https://github.com/RauliL/redgit/blob/v0.1.0/src/commands/show.ts)_
+
+## `redgit upvote ID`
+
+upvotes an submission
+
+```
+USAGE
+  $ redgit upvote ID
+
+ARGUMENTS
+  ID  id of the submission to upvote
+```
+
+_See code: [src/commands/upvote.ts](https://github.com/RauliL/redgit/blob/v0.1.0/src/commands/upvote.ts)_
 <!-- commandsstop -->
