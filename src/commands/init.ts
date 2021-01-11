@@ -1,5 +1,6 @@
 import { Command, flags } from "@oclif/command";
 import chalk from "chalk";
+import { isEmpty } from "lodash";
 import open from "open";
 
 import { createAuthenticationServer } from "../api";
@@ -9,6 +10,12 @@ export default class InitCommand extends Command {
   static description = "initializes RedGit with Reddit authentication tokens";
 
   static flags = {
+    force: flags.boolean({
+      description:
+        "forces reinitialization even if RedGit has already been initialized",
+      default: false,
+      hidden: true,
+    }),
     "no-open": flags.boolean({
       description:
         "do not automatically open the authorization URL in browser",
@@ -24,6 +31,9 @@ export default class InitCommand extends Command {
   };
 
   async run() {
+    const config = getConfiguration();
+    const accessToken = config.get("accessToken");
+    const refreshToken = config.get("refreshToken");
     const { flags } = this.parse(InitCommand);
     const onStart = (authenticationURL: string) => {
       this.log(
@@ -46,6 +56,14 @@ export default class InitCommand extends Command {
     const onError = () => {
       this.warn("An error occurred while obtaining the authorization tokens.");
     };
+
+    if (!isEmpty(accessToken) && !isEmpty(refreshToken) && !flags.force) {
+      this.error(
+        `RedGit has already been initialized. Use ${chalk.yellow(
+          "--force"
+        )} to reinitialize.`
+      );
+    }
 
     return createAuthenticationServer(onStart, onReject, onError).then(
       ([accessToken, refreshToken]) => {
