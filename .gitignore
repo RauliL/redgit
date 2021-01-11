@@ -1,0 +1,6 @@
+/lib
+/node_modules
+/oclif.manifest.json
+/package-lock.json
+*.log
+*.tgz

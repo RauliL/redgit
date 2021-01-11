@@ -1,0 +1,66 @@
+{
+  "name": "redgit",
+  "description": "Git like interface for Reddit.",
+  "version": "0.1.0",
+  "author": "Rauli Laine <rauli.laine@iki.fi>",
+  "repository": "RauliL/redgit",
+  "homepage": "https://github.com/RauliL/redgit",
+  "bugs": "https://github.com/RauliL/redgit/issues",
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "reddit"
+  ],
+  "bin": {
+    "redgit": "./bin/run"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "redgit",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prebuild": "rimraf ./lib",
+    "prepack": "yarn run build && oclif-dev manifest && oclif-dev readme",
+    "postpack": "rimraf oclif.manifest.json",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^3",
+    "columnify": "^1.5.4",
+    "configstore": "^5.0.1",
+    "open": "^7.3.1",
+    "snoowrap": "^1.22.0",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@types/columnify": "^1.5.0",
+    "@types/configstore": "^4.0.0",
+    "@types/lodash.isempty": "^4.4.6",
+    "@types/node": "^10",
+    "@types/request": "^2.48.5",
+    "globby": "^10",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8",
+    "typescript": "^3.3",
+    "yarn": "^1.22.10"
+  }
+}
