@@ -21,6 +21,7 @@ $ redgit log --ordering=new --limit 5 aww
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`redgit config [KEY] [VALUE]`](#redgit-config-key-value)
 * [`redgit downvote ID`](#redgit-downvote-id)
 * [`redgit help [COMMAND]`](#redgit-help-command)
 * [`redgit init`](#redgit-init)
@@ -28,6 +29,26 @@ $ redgit log --ordering=new --limit 5 aww
 * [`redgit open ID`](#redgit-open-id)
 * [`redgit show ID`](#redgit-show-id)
 * [`redgit upvote ID`](#redgit-upvote-id)
+
+## `redgit config [KEY] [VALUE]`
+
+```
+USAGE
+  $ redgit config [KEY] [VALUE]
+
+ARGUMENTS
+  KEY    name of the variable to get/set
+  VALUE  new value of the variable
+
+OPTIONS
+  -e, --edit               opens the configuration file in text editor
+  -l, --list               list all
+  --get=get                get value: name
+  --get-regexp=get-regexp  get values for regexp: name-regex
+  --unset=unset            remove a variable: name
+```
+
+_See code: [src/commands/config.ts](https://github.com/RauliL/redgit/blob/v0.1.0/src/commands/config.ts)_
 
 ## `redgit downvote ID`
 
