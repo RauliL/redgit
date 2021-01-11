@@ -12,10 +12,10 @@ export const openEditor = (file: string) => {
   const args = editor.split(/\s+/);
   const bin = args.shift() as string;
 
-  return new Promise<void>((resolve, reject) => {
+  return new Promise<number | null>((resolve, reject) => {
     const childProcess = spawn(bin, args.concat([file]), { stdio: "inherit" });
 
     childProcess.on("error", (error) => reject(error));
-    childProcess.on("exit", () => resolve());
+    childProcess.on("exit", (exitCode) => resolve(exitCode));
   });
 };

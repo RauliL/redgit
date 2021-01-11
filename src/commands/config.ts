@@ -58,18 +58,20 @@ export default class ConfigCommand extends Command {
     if (flags.edit) {
       return this.runEdit(config);
     } else if (flags.list) {
-      return this.runList(config);
+      this.runList(config);
     } else if (!isEmpty(flags.get)) {
-      return this.runGet(config, flags.get as string);
+      this.runGet(config, flags.get as string);
     } else if (!isEmpty(flags["get-regexp"])) {
-      return this.runGetRegexp(config, flags["get-regexp"] as string);
+      this.runGetRegexp(config, flags["get-regexp"] as string);
     } else if (!isEmpty(flags.unset)) {
-      return this.runUnset(config, flags.unset as string);
+      this.runUnset(config, flags.unset as string);
     } else if (!isEmpty(args.key) && !isEmpty(args.value)) {
-      return this.runAdd(config, args.key, args.value);
+      this.runAdd(config, args.key, args.value);
     } else if (!isEmpty(args.key)) {
-      return this.runGet(config, args.key as string);
+      this.runGet(config, args.key as string);
     }
+
+    return Promise.resolve();
   }
 
   private runAdd(config: Configstore, key: string, value: string) {
