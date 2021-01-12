@@ -4,6 +4,7 @@ import { Listing, Submission } from "snoowrap";
 import { SortedListingOptions } from "snoowrap/dist/objects/Listing";
 
 import { getClient } from "../api";
+import { createPager } from "../pager";
 import { SubmissionOrdering, SubmissionTime } from "../types";
 import { renderSubmissionList } from "../ui";
 
@@ -77,8 +78,11 @@ export default class LogCommand extends Command {
       }
 
       return promise.then((submissions) =>
-        renderSubmissionList(process.stdout, submissions, {
-          displaySubreddit: isEmpty(subreddit),
+        createPager().then((output) => {
+          renderSubmissionList(output, submissions, {
+            displaySubreddit: isEmpty(subreddit),
+          });
+          output.end();
         })
       );
     });
