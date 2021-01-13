@@ -51,7 +51,7 @@ OPTIONS
   --unset=unset            remove a variable: name
 ```
 
-_See code: [src/commands/config.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/config.ts)_
+_See code: [src/commands/config.ts](https://github.com/RauliL/redgit/blob/v0.3.0/src/commands/config.ts)_
 
 ## `redgit downvote ID`
 
@@ -65,7 +65,7 @@ ARGUMENTS
   ID  id of the submission to downvote
 ```
 
-_See code: [src/commands/downvote.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/downvote.ts)_
+_See code: [src/commands/downvote.ts](https://github.com/RauliL/redgit/blob/v0.3.0/src/commands/downvote.ts)_
 
 ## `redgit help [COMMAND]`
 
@@ -93,7 +93,7 @@ USAGE
   $ redgit init
 ```
 
-_See code: [src/commands/init.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/init.ts)_
+_See code: [src/commands/init.ts](https://github.com/RauliL/redgit/blob/v0.3.0/src/commands/init.ts)_
 
 ## `redgit log [SUBREDDIT]`
 
@@ -112,7 +112,7 @@ OPTIONS
   -t, --time=all|hour|day|month|week|year
 ```
 
-_See code: [src/commands/log.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/log.ts)_
+_See code: [src/commands/log.ts](https://github.com/RauliL/redgit/blob/v0.3.0/src/commands/log.ts)_
 
 ## `redgit open ID`
 
@@ -126,7 +126,7 @@ ARGUMENTS
   ID  id of the submission to open
 ```
 
-_See code: [src/commands/open.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/open.ts)_
+_See code: [src/commands/open.ts](https://github.com/RauliL/redgit/blob/v0.3.0/src/commands/open.ts)_
 
 ## `redgit show ID`
 
@@ -140,7 +140,7 @@ ARGUMENTS
   ID  id of the submission to display
 ```
 
-_See code: [src/commands/show.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/show.ts)_
+_See code: [src/commands/show.ts](https://github.com/RauliL/redgit/blob/v0.3.0/src/commands/show.ts)_
 
 ## `redgit subscription [COMMAND] [SUBREDDIT]`
 
@@ -155,7 +155,7 @@ ARGUMENTS
   SUBREDDIT  name of subreddit (without /r/ prefix)
 ```
 
-_See code: [src/commands/subscription.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/subscription.ts)_
+_See code: [src/commands/subscription.ts](https://github.com/RauliL/redgit/blob/v0.3.0/src/commands/subscription.ts)_
 
 ## `redgit upvote ID`
 
@@ -169,5 +169,5 @@ ARGUMENTS
   ID  id of the submission to upvote
 ```
 
-_See code: [src/commands/upvote.ts](https://github.com/RauliL/redgit/blob/v0.2.0/src/commands/upvote.ts)_
+_See code: [src/commands/upvote.ts](https://github.com/RauliL/redgit/blob/v0.3.0/src/commands/upvote.ts)_
 <!-- commandsstop -->
