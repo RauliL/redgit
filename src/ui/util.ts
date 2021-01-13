@@ -1,6 +1,9 @@
 import { Writable } from "stream";
 
-import { formatWrappedText } from "./format";
+import { TableData, formatTable, formatWrappedText } from "./format";
+
+export const renderTable = (output: Writable, data: TableData) =>
+  formatTable(data).forEach((line) => output.write(`${line}\n`));
 
 export const renderWrappedText = (
   output: Writable,
