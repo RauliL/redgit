@@ -1,4 +1,7 @@
 import { spawn } from "child_process";
+import fs from "fs";
+import { noop } from "lodash";
+import tmp from "tmp";
 
 /**
  * Opens an file in users preferred text editor, defined by $VISUAL or
@@ -19,3 +22,32 @@ export const openEditor = (file: string) => {
     childProcess.on("exit", (exitCode) => resolve(exitCode));
   });
 };
+
+/**
+ * Opens an temporary file in users preferred text editor, with optional
+ * initial contents.
+ */
+export const openTemporaryFileEditor = (initialContent?: string) =>
+  new Promise<string>((resolve, reject) => {
+    tmp.file((error, path, fd, cleanupCallback) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+      if (initialContent != null) {
+        fs.write(fd, Buffer.from(initialContent), noop);
+      }
+      openEditor(path)
+        .then(() => {
+          fs.readFile(path, (error, content) => {
+            if (error) {
+              reject(error);
+            } else {
+              resolve(content.toString());
+            }
+          });
+        })
+        .catch(resolve)
+        .finally(cleanupCallback);
+    });
+  });

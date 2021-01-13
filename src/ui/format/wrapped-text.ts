@@ -1,4 +1,4 @@
-import { isBlank } from "../../util";
+import { isBlank, splitLines } from "../../util";
 
 export const formatWrappedText = (
   input: string,
@@ -6,7 +6,7 @@ export const formatWrappedText = (
 ): string[] => {
   const result: string[] = [];
 
-  input.split(/\r?\n/).forEach((inputLine) => {
+  splitLines(input).forEach((inputLine) => {
     if (isBlank(inputLine)) {
       result.push("");
     } else {

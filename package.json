@@ -52,6 +52,7 @@
     "configstore": "^5.0.1",
     "open": "^7.3.1",
     "snoowrap": "^1.22.0",
+    "tmp": "^0.2.1",
     "tslib": "^1"
   },
   "devDependencies": {
@@ -60,6 +61,7 @@
     "@types/lodash.isempty": "^4.4.6",
     "@types/node": "^10",
     "@types/request": "^2.48.5",
+    "@types/tmp": "^0.2.0",
     "globby": "^10",
     "rimraf": "^3.0.2",
     "ts-node": "^8",
