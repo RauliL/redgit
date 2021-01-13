@@ -1,9 +1,8 @@
 import { Command, flags } from "@oclif/command";
 import { isEmpty } from "lodash";
-import { Listing, Submission } from "snoowrap";
 import { SortedListingOptions } from "snoowrap/dist/objects/Listing";
 
-import { getClient } from "../api";
+import { getSubmissionList } from "../api";
 import { SubmissionOrdering, SubmissionTime } from "../types";
 import { renderSubmissionList } from "../ui";
 
@@ -50,37 +49,14 @@ export default class LogCommand extends Command {
       options.time = flags.time as SubmissionTime;
     }
 
-    return getClient().then((client) => {
-      let promise: Promise<Listing<Submission>>;
-
-      switch (flags.ordering) {
-        case SubmissionOrdering.CONTROVERSIAL:
-          promise = client.getControversial(subreddit, options);
-          break;
-
-        case SubmissionOrdering.HOT:
-        default:
-          promise = client.getHot(subreddit, options);
-          break;
-
-        case SubmissionOrdering.NEW:
-          promise = client.getNew(subreddit, options);
-          break;
-
-        case SubmissionOrdering.RISING:
-          promise = client.getRising(subreddit, options);
-          break;
-
-        case SubmissionOrdering.TOP:
-          promise = client.getTop(subreddit, options);
-          break;
-      }
-
-      return promise.then((submissions) =>
-        renderSubmissionList(process.stdout, submissions, {
-          displaySubreddit: isEmpty(subreddit),
-        })
-      );
-    });
+    return getSubmissionList(
+      subreddit,
+      flags.ordering as SubmissionOrdering,
+      options
+    ).then((submissions) =>
+      renderSubmissionList(process.stdout, submissions, {
+        displaySubreddit: isEmpty(subreddit),
+      })
+    );
   }
 }
