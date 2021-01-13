@@ -1,3 +1,5 @@
+import { isBlank } from "../../util";
+
 export const formatWrappedText = (
   input: string,
   width: number = 79
@@ -5,7 +7,7 @@ export const formatWrappedText = (
   const result: string[] = [];
 
   input.split(/\r?\n/).forEach((inputLine) => {
-    if (/^\s*$/.test(inputLine)) {
+    if (isBlank(inputLine)) {
       result.push("");
     } else {
       let outputLine = "";
