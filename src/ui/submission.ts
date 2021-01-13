@@ -4,7 +4,7 @@ import { isEmpty } from "lodash";
 import { Submission } from "snoowrap";
 import { Writable } from "stream";
 
-import { renderTimestamp } from "./util";
+import { renderTimestamp, renderWrappedText } from "./util";
 
 type RenderSubmissionOptions = {
   displaySelfText: boolean;
@@ -34,9 +34,11 @@ export const renderSubmission = (
     )}${chalk.yellow(")")}\n`
   );
   output.write(columnify(info, { showHeaders: false }));
-  output.write(`\n\n    ${submission.title}\n`);
+  output.write("\n\n");
+  renderWrappedText(output, submission.title, 79, 4);
   if (options.displaySelfText && !isEmpty(submission.selftext)) {
-    output.write(`\n    ${submission.selftext}\n`);
+    output.write("\n");
+    renderWrappedText(output, submission.selftext, 79, 4);
   }
 };
 
