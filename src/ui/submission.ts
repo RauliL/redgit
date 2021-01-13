@@ -1,10 +1,9 @@
 import chalk from "chalk";
-import columnify from "columnify";
 import { isEmpty } from "lodash";
 import { Submission } from "snoowrap";
 import { Writable } from "stream";
 
-import { renderTimestamp, renderWrappedText } from "./util";
+import { renderTable, renderTimestamp, renderWrappedText } from "./util";
 
 type RenderSubmissionOptions = {
   displaySelfText: boolean;
@@ -16,25 +15,21 @@ export const renderSubmission = (
   submission: Submission,
   options: Partial<RenderSubmissionOptions> = {}
 ) => {
-  const info: Record<string, string> = {};
-
-  if (options.displaySubreddit) {
-    info["Subreddit:"] = submission.subreddit_name_prefixed;
-  }
-  info["Author:"] = submission.author.name;
-  info["Date:"] = renderTimestamp(submission.created);
-  info["Comments:"] = submission.num_comments.toString();
-  if (submission.url) {
-    info["URL:"] = submission.url;
-  }
-
   output.write(
     `${chalk.yellow(`submission ${submission.id} (`)}${chalk.green(
       submission.score.toString()
     )}${chalk.yellow(")")}\n`
   );
-  output.write(columnify(info, { showHeaders: false }));
-  output.write("\n\n");
+  renderTable(output, [
+    options.displaySubreddit
+      ? ["Subreddit", submission.subreddit_name_prefixed]
+      : null,
+    ["Author", submission.author.name],
+    ["Date", renderTimestamp(submission.created)],
+    ["Comments", submission.num_comments],
+    submission.url ? ["URL", submission.url] : null,
+  ]);
+  output.write("\n");
   renderWrappedText(output, submission.title, 79, 4);
   if (options.displaySelfText && !isEmpty(submission.selftext)) {
     output.write("\n");
