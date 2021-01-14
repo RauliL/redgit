@@ -1,7 +1,7 @@
 {
   "name": "redgit",
   "description": "Git like interface for Reddit.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "Rauli Laine <rauli.laine@iki.fi>",
   "homepage": "https://rauli.dev/redgit",
   "bugs": "https://github.com/RauliL/redgit/issues",
