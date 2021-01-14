@@ -27,6 +27,6 @@ export const getClient = (): Promise<Snoowrap> =>
         accessToken,
         clientId: CLIENT_ID,
         refreshToken,
-        userAgent: "RedGit v0.1.0",
+        userAgent: "RedGit",
       })
   );
