@@ -27,6 +27,7 @@ $ redgit log --ordering=new --limit 5 aww
 * [`redgit init`](#redgit-init)
 * [`redgit log [SUBREDDIT]`](#redgit-log-subreddit)
 * [`redgit open ID`](#redgit-open-id)
+* [`redgit reply ID`](#redgit-reply-id)
 * [`redgit show ID`](#redgit-show-id)
 * [`redgit subscription [COMMAND] [SUBREDDIT]`](#redgit-subscription-command-subreddit)
 * [`redgit upvote ID`](#redgit-upvote-id)
@@ -127,6 +128,23 @@ ARGUMENTS
 ```
 
 _See code: [src/commands/open.ts](https://github.com/RauliL/redgit/blob/v0.3.0/src/commands/open.ts)_
+
+## `redgit reply ID`
+
+replies to an submission
+
+```
+USAGE
+  $ redgit reply ID
+
+ARGUMENTS
+  ID  id of the submission to reply to
+
+OPTIONS
+  -m, --message=message  message to send as an reply
+```
+
+_See code: [src/commands/reply.ts](https://github.com/RauliL/redgit/blob/v0.3.0/src/commands/reply.ts)_
 
 ## `redgit show ID`
 
