@@ -16,7 +16,7 @@ Git like interface for Reddit.
 ```sh-session
 $ npm install -g redgit
 $ redgit init
-$ redgit log --ordering=new --limit 5 aww
+$ redgit log --ordering=new --limit 5 wallstreetbets
 ```
 <!-- usagestop -->
 # Commands
